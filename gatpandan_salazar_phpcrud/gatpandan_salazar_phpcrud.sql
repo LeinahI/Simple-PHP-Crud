@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 01:18 AM
+-- Generation Time: May 10, 2023 at 08:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -43,18 +43,18 @@ CREATE TABLE `tbl_info` (
 --
 
 INSERT INTO `tbl_info` (`id`, `fname`, `lname`, `address`, `gender`, `age`, `birthdate`, `email`) VALUES
-(32, 'Nathaniel', 'Gatpandan', 'Taga jan lang', 'other', 20, '2003-04-15', 'gtpndn@gmail.com'),
-(37, 'Ana Bien', 'Salazar', 'taga tags', 'other', 20, '2003-04-15', 'ana@gmail.com'),
-(38, 'vien123', 'vien123', 'taga gentri', 'male', 8, '2014-06-12', 'vienmar@gmail.com'),
-(39, 'Shania Andrea', 'Obaob', 'sa heart ni nat', 'female', 19, '2003-12-06', 'shania@gmail.com'),
-(53, 'test', 'test', 'test', 'female', 22, '2001-02-06', 'test@gmail.com'),
-(57, 'test2', 'test2', 'test2', 'male', 0, '2023-05-05', 'ana@gmail.com'),
-(58, 'test3', 'test3', 'test3', 'female', 0, '2023-05-03', 'test3@mail.com'),
-(59, 'test4', 'test4', 'test4', 'male', 0, '2023-05-04', 'test4@gmail.co'),
-(60, 'test5', 'test5', 'test5', 'male', 0, '2023-05-06', 'test5@gmail.com'),
-(61, 'test6', 'test6', 'test6', 'male', 0, '2023-05-06', 'test6@mail.com'),
-(62, 'test7', 'test7', 'test7', 'male', 0, '2023-05-04', 'test7@gmail.co'),
-(63, 'test8', 'test8', 'test8', 'male', 0, '2023-05-04', 'test8@mail.co');
+(1, 'Nathaniel', 'Gatpandan', 'Taga jan lang', 'other', 20, '2003-04-15', 'gtpndn@gmail.com'),
+(2, 'Ana Bien', 'Salazar', 'taga tags', 'other', 20, '2003-04-15', 'ana@gmail.com'),
+(3, 'vien123', 'vien123', 'taga gentri', 'male', 8, '2014-06-12', 'vienmar@gmail.com'),
+(4, 'Shania Andrea', 'Obaob', 'sa heart ni nat', 'female', 19, '2003-12-06', 'shania@gmail.com'),
+(5, 'Kamil', 'Faith', 'Basta taga etivac', 'female', 21, '2002-02-06', 'kamil@gmail.com'),
+(6, 'johna123', 'johna123', 'taga silang', 'female', 20, '2002-12-07', 'johna@gmail.com'),
+(7, 'clifford123', 'clifford123', 'taga dasma ata', 'male', 20, '2002-08-21', 'clifford123@gmail.com'),
+(8, 'john123', 'john123', 'taga imus', 'male', 21, '2001-11-14', 'john@gmail.com'),
+(9, 'aaron123', 'aaron123', 'taga dasma', 'male', 20, '2002-08-22', 'eva@gmail.com'),
+(10, 'ashlie123', 'ashlie123', 'taga gma', 'male', 20, '2002-06-10', 'ashlie123@gmail.com'),
+(11, 'reiniel123', 'reiniel123', 'taga gma rin', 'male', 20, '2002-09-11', 'reiniel123@gmail.com'),
+(12, 'test8', 'test8', 'test8', 'male', 0, '2023-05-04', 'test8@mail.co');
 
 -- --------------------------------------------------------
 
@@ -74,18 +74,18 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `uname`, `password`, `user_type`) VALUES
-(32, 'nath123', 'nath123', 'admin'),
-(37, 'ana123', 'ana123', 'admin'),
-(38, 'vien123', 'vien123', 'user'),
-(39, 'shania123', 'shania123', 'admin'),
-(53, 'test1', 'test1', 'user'),
-(57, 'test2', 'test2', 'admin'),
-(58, 'test3', 'test3', 'user'),
-(59, 'test4', 'test4', 'admin'),
-(60, 'test5', 'test5', 'admin'),
-(61, 'test6', 'test6', 'user'),
-(62, 'test7', 'test7', 'user'),
-(63, 'test8', 'test8', 'user');
+(1, 'nath123', 'nath123', 'admin'),
+(2, 'ana123', 'ana123', 'admin'),
+(3, 'vien123', 'vien123', 'user'),
+(4, 'shania123', 'shania123', 'admin'),
+(5, 'kamil', 'kamil', 'admin'),
+(6, 'johna123', 'johna123', 'user'),
+(7, 'clifford123', 'clifford123', 'user'),
+(8, 'john123', 'john123', 'admin'),
+(9, 'aaron123', 'aaron123', 'admin'),
+(10, 'ashlie123', 'ashlie123', 'user'),
+(11, 'reiniel123', 'reiniel123', 'user'),
+(12, 'test8', 'test8', 'user');
 
 --
 -- Indexes for dumped tables
@@ -111,13 +111,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_info`
 --
 ALTER TABLE `tbl_info`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_user` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

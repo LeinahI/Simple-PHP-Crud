@@ -16,20 +16,13 @@ if (!isset($_SESSION['admin_name'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
 
-    <!--jquery cdn start-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!--jquery cdn end-->
-
-    <!--popper cdn start-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <!--bootstrap cdn end-->
-
     <!--bootstrap cdn start-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <!--bootstrap cdn end-->
 
     <!-- datatables css cdn start -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
     <!-- datatables css cdn end -->
 
     <!--bootstrap & font-awesome icons cdn start-->
@@ -80,6 +73,17 @@ if (!isset($_SESSION['admin_name'])) {
         .addDatabtn:hover {
             background: #ADC9F1;
             color: #0B5ED7;
+        }
+
+        .data_table .btn {
+            background: #fff;
+            padding: 15px;
+            box-shadow: 1px 3px 5px #aaa;
+            border-radius: 5px;
+        }
+
+        div.dataTables_length {
+            margin-bottom: 1em;
         }
     </style>
     <!-- css end -->
@@ -142,6 +146,7 @@ if (!isset($_SESSION['admin_name'])) {
                             <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" target="_blank" href="https://youtu.be/fC3j2U_UZrQ">link 1</a></label>
                             <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" target="_blank" href="https://www.youtube.com/playlist?list=PLRheCL1cXHrsnOsrT3PxmHDMLbZEwqPZ5">link 2</a></label>
                             <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" target="_blank" href="https://youtu.be/C4N3sMg25fQ">link 3</a></label>
+                            <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" target="_blank" href="https://youtu.be/clEPQ_mov_8">link 4</a></label>
                         </div>
                     </div>
                 </form>
@@ -243,7 +248,7 @@ if (!isset($_SESSION['admin_name'])) {
                         <button type="button" class="btn btn-success updadeBtn" data-bs-dismiss="modal">No</button>
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </div>
@@ -356,7 +361,7 @@ if (!isset($_SESSION['admin_name'])) {
                                     <th scope="col">age</th>
                                     <th scope="col">birthdate</th>
                                     <th scope="col">email</th>
-                                    <th scope="col">Role Type</th>
+                                    <th scope="col" class="text-center">Role Type</th>
                                     <th scope="col" class="text-center">Operation</th>
                                 </tr>
                             </thead>
@@ -374,7 +379,10 @@ if (!isset($_SESSION['admin_name'])) {
                             if ($result) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row['id_user'];
-                                    $uname = $row['uname']; ?>
+                                    $uname = $row['uname'];
+                                    $utype = $row['user_type'];
+                                    $age = $row['age'];
+                            ?>
                                     <!--PHP mysql select table end-->
 
                                     <!-- <tbody> -->
@@ -386,22 +394,26 @@ if (!isset($_SESSION['admin_name'])) {
                                         <td><?php echo $row['lname']; ?></td>
                                         <td><?php echo $row['address']; ?></td>
                                         <td><?php echo $row['gender']; ?></td>
-                                        <td><?php echo $row['age']; ?></td>
+                                        <td><?php echo '<span class="float-end">' . $age . '</span>' ?></td>
                                         <td><?php echo $row['birthdate']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
-                                        <td><?php echo $row['user_type']; ?></td>
+                                        <td><?php if ($utype == "admin") {
+                                                echo '<center><span class="badge rounded-pill bg-success">' . $utype . '</span></center>';
+                                            } else {
+                                                echo '<center><span class="badge rounded-pill bg-primary">' . $utype . '</span></center>';
+                                            } ?></td>
                                         <td id="opr">
                                             <div class="d-flex gap-1 ">
                                                 <!-- Update btn trigger modal start -->
-                                                <button type="button" class="btn btn-success updadeBtn udBtn" data-bs-toggle="modal" data-bs-target="#updateModal">
-                                                    Update
+                                                <button type="button" class="btn btn-success updadeBtn udBtn" title="update" data-bs-toggle="modal" data-bs-target="#updateModal">
+                                                    <i class="fa-solid fa-pen-nib"></i>
                                                 </button>
                                                 <!-- Update btn trigger modal end -->
 
                                                 <!-- Delete btn trigger modal start -->
                                                 <?php
-                                                $show_data = '<button type="button" class="btn btn-danger deleteBtn" id="delbtn" data-bs-toggle="modal" data-bs-target="#deleteModal" aria-hidden="true">
-                                                 Delete</button>';
+                                                $show_data = '<button type="button" title="delete" class="btn btn-danger deleteBtn" id="delbtn" data-bs-toggle="modal" data-bs-target="#deleteModal" aria-hidden="true">
+                                                <i class="fa-solid fa-trash"></i></button>';
                                                 $hide_data = '<script> const link = document.querySelector("#delbt"); link.remove();</script>';
                                                 if ($admnN != $uname) { //?if sesson uname != uname Delete button show
                                                     echo $show_data;
@@ -424,6 +436,15 @@ if (!isset($_SESSION['admin_name'])) {
         </div>
     </div>
     <!--Table end-->
+
+    <!--jquery cdn start-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!--jquery cdn end-->
+
+    <!--popper cdn start-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <!--popper cdn end-->
+
     <!--javascript start-->
     <script>
         //*Remove values of text box start
@@ -566,14 +587,45 @@ if (!isset($_SESSION['admin_name'])) {
         //* Data Tables searchbox start 
         $(document).ready(function() {
             $('#DTsid').DataTable({
+
+
+                "bProcessing": true,
+                "bStateSave": true,
                 pageLength: 0,
-                lengthMenu: [ [5, 7, -1], [5, 7, "All"] ],
+                lengthMenu: [
+                    [5, 7, -1],
+                    [5, 7, "All"]
+                ],
                 responsive: true,
                 language: {
                     search: "_INPUT_",
                     searchPlaceholder: "Search records"
-                }
+                },
+
+                dom: 'lBfrtip',
+                buttons: [{
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
+                        }
+                    },
+                    /* 'colvis' */ //!Column Visibility
+                ]
             });
+
+            table.buttons().container().appendTo('#DTsid .col-md-6:eq(0)');
         });
         //* Data Tables searchbox start 
     </script>
@@ -581,8 +633,7 @@ if (!isset($_SESSION['admin_name'])) {
 
     <!-- add scripts into scripts.php start -->
     <?php
-    include('scripts.php');
-    ?>
+    include('scripts.php'); ?>
     <!-- add scripts into scripts.php start -->
 
     <!--Bootsrap JS cdn start-->
@@ -592,6 +643,13 @@ if (!isset($_SESSION['admin_name'])) {
     <!-- datatables js cdn start -->
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
     <!-- datatables js cdn end -->
 
 

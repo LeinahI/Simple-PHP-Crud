@@ -16,16 +16,8 @@ if (!isset($_SESSION['user_name'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
 
-    <!--jquery cdn start-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!--jquery cdn end-->
-
     <!--bootstrap cdn start-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--bootstrap cdn end-->
-
-    <!--popper cdn start-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <!--bootstrap cdn end-->
 
     <!--bootstrap & font-awesome icons cdn start-->
@@ -35,7 +27,7 @@ if (!isset($_SESSION['user_name'])) {
 
     <!-- css start -->
     <style>
-        .eyeLogin {
+        .update-eye {
             position: absolute;
             top: 51%;
             right: 3%;
@@ -43,11 +35,13 @@ if (!isset($_SESSION['user_name'])) {
             color: black;
             user-select: none;
         }
+
         .udbtn {
             background: #157347;
             color: #E5EFEA;
             cursor: pointer;
         }
+
         .udbtn:hover {
             background: #B1D0C1;
             color: #157347;
@@ -117,6 +111,7 @@ if (!isset($_SESSION['user_name'])) {
                             <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" href="https://youtu.be/fC3j2U_UZrQ">link 1</a></label>
                             <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" href="https://www.youtube.com/playlist?list=PLRheCL1cXHrsnOsrT3PxmHDMLbZEwqPZ5">link 2</a></label>
                             <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" href="https://youtu.be/C4N3sMg25fQ">link 3</a></label>
+                            <label class="form-label"><a style="color: inherit; text-decoration:none; font-weight: bold;" target="_blank" href="https://youtu.be/clEPQ_mov_8">link 4</a></label>
                         </div>
                     </div>
                 </form>
@@ -133,7 +128,7 @@ if (!isset($_SESSION['user_name'])) {
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-lines-fill fs-3 me-2"></i>Update Data
                     </h5>
-                    <button type="button" class="btn-close close-update" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close closeUD" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <form action="confirm.php" method="POST">
@@ -146,9 +141,9 @@ if (!isset($_SESSION['user_name'])) {
                                     <label for="unamefloat">username</label>
                                 </div>
                                 <div class="col-md-6 p-0 mb-3 form-floating">
-                                    <input type="password" name="password" id="floatingPassword" placeholder="Password" class="form-control pw passwords shadow-none">
+                                    <input type="password" name="password" id="floatingPassword" placeholder="Password" class="form-control pw updatepw shadow-none">
                                     <label for="floatingPassword">password</label>
-                                    <i class="fa-solid fa-eye eyeLogin" id="eyeLogin"></i>
+                                    <i class="fa-solid fa-eye update-eye"></i>
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3 form-floating">
                                     <input type="text" name="firstname" id="fnfloatud" placeholder="fname" class="form-control fname shadow-none">
@@ -173,7 +168,7 @@ if (!isset($_SESSION['user_name'])) {
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Birthdate</label>
-                                    <input type="date" id="bdate" name="birthdate" placeholder="enter your birthdate" style="width: 100%; font-size: 15px; padding: 6px; border-color: #CED4DA; border-radius: 5px;">
+                                    <input type="date" class="bdate" name="birthdate" placeholder="enter your birthdate" style="width: 100%; font-size: 15px; padding: 6px; border-color: #CED4DA; border-radius: 5px;">
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Age</label>
@@ -254,7 +249,7 @@ if (!isset($_SESSION['user_name'])) {
 
                                                 <!-- Update btn trigger modal start -->
                                                 <button type="button" class="btn btn-success updadeBtn udbtn" data-bs-toggle="modal" data-bs-target="#updateModal">
-                                                    Update
+                                                    <i class="fa-solid fa-pen-nib"></i>
                                                 </button>
                                                 <!-- Update btn trigger modal end -->
 
@@ -275,6 +270,13 @@ if (!isset($_SESSION['user_name'])) {
     </div>
     <!-- table end -->
 
+    <!--jquery cdn start-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--jquery cdn end-->
+
+    <!--popper cdn start-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <!--bootstrap cdn end-->
 
     <!--javascript start-->
     <script>
@@ -292,11 +294,11 @@ if (!isset($_SESSION['user_name'])) {
                 day = '0' + day.toString();
 
             var maxDate = year + '-' + month + '-' + day;
-            $('#bdate').attr('max', maxDate);
+            $('.bdate').attr('max', maxDate);
 
         });
         $(document).ready(function() {
-            $('#bdate').change(function() {
+            $('.bdate').change(function() {
                 var dob = new Date($(this).val());
                 var today = new Date();
                 var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
@@ -325,16 +327,16 @@ if (!isset($_SESSION['user_name'])) {
             $('.addr').val(data[5]);
             $('.gender').val(data[6]);
             $('.ageget').val(data[7]);
-            $('#bdate').val(data[8]);
+            $('.bdate').val(data[8]);
             $('.email').val(data[9]);
             $('#roleType').val(data[10]);
         });
         //* Transfer data from table to update modal end
 
-        //* Password eye icon start
-        const passwordInput = document.querySelector(".passwords")
-        const eye = document.querySelector(".eyeLogin")
-        const closebtn = document.querySelector(".close-update");
+        //* update Password eye icon start
+        const passwordInput = document.querySelector(".updatepw")
+        const eye = document.querySelector(".update-eye")
+        const closebtn = document.querySelector(".closeUD");
         eye.addEventListener("click", function() {
             this.classList.toggle("fa-eye-slash")
             const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
@@ -342,11 +344,11 @@ if (!isset($_SESSION['user_name'])) {
         })
         closebtn.addEventListener("click", function() {
             if (eye.classList.contains("fa-eye-slash") == true) {
-                eye.setAttribute("class", "fa-solid fa-eye eyeLogin")
+                eye.setAttribute("class", "fa-solid fa-eye update-eye")
                 passwordInput.setAttribute("type", "password")
             }
         })
-        //* Password eye icon end
+        //* update Password eye icon end
     </script>
     <!--javascript end-->
 
