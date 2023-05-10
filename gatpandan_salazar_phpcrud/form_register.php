@@ -4,6 +4,7 @@
 if (isset($_POST['submit'])) {
     $fname = mysqli_real_escape_string($conn, $_POST['firstname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    $mname = mysqli_real_escape_string($conn, $_POST['middle']);
     $addr = mysqli_real_escape_string($conn, $_POST['address']);
     $gender = $_POST['gender_type'];
     $age = mysqli_real_escape_string($conn, $_POST['age']);
@@ -212,6 +213,7 @@ if (isset($_POST['submit'])) {
             ?>
             <input type="text" name="firstname" required placeholder="enter your first name">
             <input type="text" name="lastname" required placeholder="enter your last name">
+            <input type="text" name="middlename" required placeholder="enter your middle name">
             <input type="text" name="address" required placeholder="enter your address">
             <select name="gender_type" required placeholder="Gender">
                 <option value="" disabled selected>Gender</option>

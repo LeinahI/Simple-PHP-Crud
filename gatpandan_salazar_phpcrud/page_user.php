@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_name'])) {
         .update-eye {
             position: absolute;
             top: 51%;
-            right: 3%;
+            right: 5%;
             cursor: pointer;
             color: black;
             user-select: none;
@@ -140,18 +140,22 @@ if (!isset($_SESSION['user_name'])) {
                                     <input type="text" name="username" id="unamefloat" placeholder="uname" class="form-control uname shadow-none">
                                     <label for="unamefloat">username</label>
                                 </div>
-                                <div class="col-md-6 p-0 mb-3 form-floating">
+                                <div class="col-md-6 ps-0 mb-3 form-floating">
                                     <input type="password" name="password" id="floatingPassword" placeholder="Password" class="form-control pw updatepw shadow-none">
                                     <label for="floatingPassword">password</label>
                                     <i class="fa-solid fa-eye update-eye"></i>
                                 </div>
-                                <div class="col-md-6 ps-0 mb-3 form-floating">
+                                <div class="col-md-4 ps-0 mb-3 form-floating">
                                     <input type="text" name="firstname" id="fnfloatud" placeholder="fname" class="form-control fname shadow-none">
                                     <label for="fnfloatud">First Name</label>
                                 </div>
-                                <div class="col-md-6 ps-0 mb-3 form-floating">
+                                <div class="col-md-4 ps-0 mb-3 form-floating">
                                     <input type="text" name="lastname" id="lnfloatud" placeholder="lname" class="form-control lname shadow-none">
                                     <label for="lnfloatud">Last Name</label>
+                                </div>
+                                <div class="col-md-4 ps-0 mb-3 form-floating">
+                                    <input type="text" name="middlename" id="mnfloatud" placeholder="mname" class="form-control mname shadow-none">
+                                    <label for="mnfloatud">Middle Name</label>
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3 form-floating">
                                     <input type="text" name="address" id="addrfloatud" placeholder="addr" class="form-control addr shadow-none">
@@ -208,6 +212,7 @@ if (!isset($_SESSION['user_name'])) {
                                     <th scope="col">password</th>
                                     <th scope="col">first name</th>
                                     <th scope="col">last name</th>
+                                    <th scope="col">middle name</th>
                                     <th scope="col">address</th>
                                     <th scope="col">gender</th>
                                     <th scope="col">age</th>
@@ -221,7 +226,7 @@ if (!isset($_SESSION['user_name'])) {
                             <?php
                             $sql = "SELECT
                                 tbl_user.id_user, tbl_user.uname, tbl_user.password,
-                                tbl_info.fname, tbl_info.lname, tbl_info.address,
+                                tbl_info.fname, tbl_info.lname, tbl_info.mname, tbl_info.address,
                                 tbl_info.gender, tbl_info.age, tbl_info.birthdate,
                                 tbl_info.email FROM tbl_user  JOIN tbl_info
                                 ON tbl_user.id_user = tbl_info.id
@@ -240,6 +245,7 @@ if (!isset($_SESSION['user_name'])) {
                                             <td><?php echo $row['password']; ?></td>
                                             <td><?php echo $row['fname']; ?></td>
                                             <td><?php echo $row['lname']; ?></td>
+                                            <td><?php echo $row['mname']; ?></td>
                                             <td><?php echo $row['address']; ?></td>
                                             <td><?php echo $row['gender']; ?></td>
                                             <td><?php echo $row['age']; ?></td>
@@ -324,12 +330,13 @@ if (!isset($_SESSION['user_name'])) {
             $('.pw').val(data[2]);
             $('.fname').val(data[3]);
             $('.lname').val(data[4]);
-            $('.addr').val(data[5]);
-            $('.gender').val(data[6]);
-            $('.ageget').val(data[7]);
-            $('.bdate').val(data[8]);
-            $('.email').val(data[9]);
-            $('#roleType').val(data[10]);
+            $('.mname').val(data[5]);
+            $('.addr').val(data[6]);
+            $('.gender').val(data[7]);
+            $('.ageget').val(data[8]);
+            $('.bdate').val(data[9]);
+            $('.email').val(data[10]);
+            $('#roleType').val(data[11]);
         });
         //* Transfer data from table to update modal end
 

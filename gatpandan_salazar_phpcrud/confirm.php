@@ -30,6 +30,7 @@ if (isset($_POST['updatedataAdmin'])) {
     $pw = $_POST['password'];
     $fname = $_POST['firstname'];
     $lname = $_POST['lastname'];
+    $mname = $_POST['middlename'];
     $addr = $_POST['address'];
     $gender = $_POST['gender_type'];
     $bdate = $_POST['birthdate'];
@@ -52,6 +53,7 @@ if (isset($_POST['updatedataAdmin'])) {
         tbl_user.password = '$pw', 
         tbl_info.fname = '$fname', 
         tbl_info.lname = '$lname', 
+        tbl_info.mname = '$mname', 
         tbl_info.address = '$addr', 
         tbl_info.gender = '$gender', 
         tbl_info.age = '$age', 
@@ -77,6 +79,7 @@ if (isset($_POST['updatedataUser'])) {
     $pw = $_POST['password'];
     $fname = $_POST['firstname'];
     $lname = $_POST['lastname'];
+    $mname = $_POST['middlename'];
     $addr = $_POST['address'];
     $gender = $_POST['gender_type'];
     $bdate = $_POST['birthdate'];
@@ -98,6 +101,7 @@ if (isset($_POST['updatedataUser'])) {
         tbl_user.password = '$pw', 
         tbl_info.fname = '$fname', 
         tbl_info.lname = '$lname', 
+        tbl_info.mname = '$mname', 
         tbl_info.address = '$addr', 
         tbl_info.gender = '$gender', 
         tbl_info.age = '$age', 
@@ -119,6 +123,7 @@ if (isset($_POST['addDataAdmin'])) {
     $pw = ($_POST['password']);
     $fname = mysqli_real_escape_string($conn, $_POST['firstname']);
     $lname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    $mname = mysqli_real_escape_string($conn, $_POST['middlename']);
     $addr = mysqli_real_escape_string($conn, $_POST['address']);
     $gender = $_POST['gender_type'];
     $bdate = $_POST['birthdate'];
@@ -139,9 +144,9 @@ if (isset($_POST['addDataAdmin'])) {
         VALUES('$uname','$pw','$user_type')";
 
         $insertInfo = "INSERT INTO
-        tbl_info(fname, lname, address,
+        tbl_info(fname, lname, mname, address,
         gender, age, birthdate, email)
-        VALUES ('$fname','$lname','$addr',
+        VALUES ('$fname','$lname','$mname','$addr',
         '$gender', '$age','$bdate,','$email')";
 
         mysqli_query($conn, $insertUser);
