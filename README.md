@@ -8,3 +8,7 @@
 ![image](https://github.com/LeinahI/Simple-PHP-Crud/assets/53577436/5785fe13-088d-4484-a0c9-972c689af2a3)
 # Login Page
 ![image](https://github.com/LeinahI/Simple-PHP-Crud/assets/53577436/6d99565b-3056-4ee0-a7fd-7834184dca18)
+# tbl_info
+![image](https://github.com/LeinahI/Simple-PHP-Crud/assets/53577436/48dc06a9-0304-4f22-b31a-1ea8be7d0285)
+# tbL_user
+![image](https://github.com/LeinahI/Simple-PHP-Crud/assets/53577436/8c5241dd-d11a-4fea-99b3-f066c680a9a3)
